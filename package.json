@@ -24,7 +24,7 @@
 		"typescript": "^5.3.2"
 	},
 	"dependencies": {
-		"axios": "^1.6.5",
+		"axios": "^1.6.7",
 		"deepl": "^1.0.13",
 		"discord.js": "^14.12.1",
 		"dotenv": "^16.3.2",
