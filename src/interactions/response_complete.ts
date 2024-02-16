@@ -1,17 +1,26 @@
-import { ServerResponseData } from '../Utils/ServerData';
+import { list } from '../index';
+import { connect, Database } from 'aurora-mongo';
 import { AutocompleteInteraction, Guild } from 'discord.js';
-import { readFileSync } from 'fs';
 
 export async function responseComplete(interaction: AutocompleteInteraction) {
 	const focusedValue = interaction.options.getFocused();
-	const rawData = readFileSync('./database/responses.json', 'utf-8');
-	const data: Record<string, ServerResponseData> = JSON.parse(rawData);
-	const choices = [] as string[];
-	const serverData = data[(interaction.guild as Guild).id];
-	if (!serverData || Object.keys(serverData).length === 0) return;
-	Object.keys(data[(interaction.guild as Guild).id]).forEach((key) => {
-		choices.push(key);
-	});
+	await connect(process.env.MONGO_URL!);
+	const Response = new Database('Response');
+	list['response'] = await Response.keys();
+	const matchingKeys = list['response'].filter((key) => key.split(',')[0] === (interaction.guild as Guild).id);
+	const serverData: { [key: string]: string } = {};
+	await Promise.all(
+		matchingKeys.map(async (key) => {
+			const value = await Response.get(key);
+			serverData[key] = value;
+		})
+	);
+	const choices: string[] = [];
+	for (const key in serverData) {
+		const response = serverData[key];
+		choices.push(response);
+	}
+
 	const filtered = choices.filter((choice) => choice.startsWith(focusedValue));
 	await interaction.respond(filtered.map((choice) => ({ name: choice, value: choice })));
 }
