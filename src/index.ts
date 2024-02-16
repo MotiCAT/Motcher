@@ -1,9 +1,9 @@
 import { events } from './Events';
+import { userEnCounts } from './interactions/context_en_translate';
+import { userJaCounts } from './interactions/context_ja_translate';
 import { BaseInteraction, Client, GatewayIntentBits, GuildMember, Message, PartialGuildMember, PartialMessage, Partials, Role } from 'discord.js';
 import { config } from 'dotenv';
 import cron from 'node-cron';
-import { userJaCounts } from './interactions/context_ja_translate';
-import { userEnCounts } from './interactions/context_en_translate';
 
 config();
 
@@ -44,9 +44,9 @@ client
 	.on('guildMemberAdd', async (member: GuildMember) => events.onGuildMemberAdd(member))
 	.on('guildMemberRemove', async (member: GuildMember | PartialGuildMember) => events.onGuildMemberRemove(member))
 	.on('guildMemberUpdate', async (oldMember: GuildMember | PartialGuildMember, newMember: GuildMember) => events.onGuildMemberUpdate(oldMember, newMember))
-	.on('guildRoleCreate', async (role: Role) => events.onGuildRoleCreate(role))
-	.on('guildRoleUpdate', async (oldRole: Role, newRole: Role) => events.onGuildRoleUpdate(oldRole, newRole))
-	.on('guildRoleDelete', async (role: Role) => events.onGuildRoleDelete(role))
+	.on('roleCreate', async (role: Role) => events.onGuildRoleCreate(role))
+	.on('roleUpdate', async (oldRole: Role, newRole: Role) => events.onGuildRoleUpdate(oldRole, newRole))
+	.on('roleDelete', async (role: Role) => events.onGuildRoleDelete(role))
 	.on('interactionCreate', async (interaction: BaseInteraction) => events.onInteractionCreate(interaction))
 	.on('error', async (error: Error) => events.onError(client, error))
 	.login(process.env.TOKEN);
