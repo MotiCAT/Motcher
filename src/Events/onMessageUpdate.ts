@@ -6,7 +6,14 @@ import { config } from 'dotenv';
 config();
 
 export const onMessageUpdate = async (oldMessage: Message | PartialMessage, newMessage: Message | PartialMessage) => {
-	if ((oldMessage.author as User).bot || oldMessage.content === newMessage.content || !oldMessage.guild || bannedUsers.includes((newMessage.author as User).id) || bannedServers.includes((newMessage.guild as Guild).id)) return;
+	if (
+		(oldMessage.author as User).bot ||
+		oldMessage.content === newMessage.content ||
+		!oldMessage.guild ||
+		bannedUsers.includes((newMessage.author as User).id) ||
+		bannedServers.includes((newMessage.guild as Guild).id)
+	)
+		return;
 	await connect(process.env.MONGO_URL!);
 	const MessageLog = new Database('MessageLog');
 	list['message'] = await MessageLog.keys();

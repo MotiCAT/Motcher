@@ -10,7 +10,8 @@ export async function onMessageDelete(message: Message | PartialMessage) {
 		!message.content ||
 		!message.guild?.members.me?.permissionsIn(message.channel as GuildBasedChannel).has(PermissionsBitField.Flags.SendMessages) ||
 		!message.guild ||
-		bannedUsers.includes((message.author as User).id) || bannedServers.includes((message.guild as Guild).id)
+		bannedUsers.includes((message.author as User).id) ||
+		bannedServers.includes((message.guild as Guild).id)
 	)
 		return;
 	await connect(process.env.MONGO_URL!);

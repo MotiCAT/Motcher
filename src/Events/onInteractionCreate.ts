@@ -8,7 +8,7 @@ config();
 export async function onInteractionCreate(interaction: BaseInteraction): Promise<Awaitable<void>> {
 	if (interaction.isAutocomplete()) {
 		switch (interaction.commandName) {
-			case 'resdelete':
+			case 'response':
 				interactions.responseComplete(interaction);
 				break;
 			default:
