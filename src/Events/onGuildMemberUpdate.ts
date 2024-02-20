@@ -11,7 +11,7 @@ export async function onGuildMemberUpdate(oldMember: GuildMember | PartialGuildM
 	const MemberLog = new Database('MemberLog');
 	list['member'] = await MemberLog.keys();
 	const serverId = oldMember.guild.id;
-	if (list['join'].includes(serverId)) {
+	if (list['member'].includes(serverId)) {
 		try {
 			const MemberLogData = (await MemberLog.get(serverId)) as string;
 			const channel = oldMember.guild.channels.cache.get(MemberLogData);
