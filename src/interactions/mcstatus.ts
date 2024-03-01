@@ -4,7 +4,7 @@ import { ChatInputCommandInteraction, EmbedBuilder } from 'discord.js';
 
 export async function mcstatusCommand(interaction: ChatInputCommandInteraction) {
 	const mcServerIp = interaction.options.getString('address');
-	const mcServerPort = interaction.options.getString('port') ?? '25565';
+	const mcServerPort = interaction.options.getInteger('port') ?? 25565;
 	const url = `https://mcapi.us/server/status?ip=${mcServerIp}&port=${mcServerPort}`;
 	if (!mcServerIp) return interaction.reply(embeds.mcstatusHelp);
 	axios
