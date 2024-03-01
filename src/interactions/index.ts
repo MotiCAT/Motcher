@@ -17,6 +17,7 @@ import { joinCommand } from './join';
 import { kickCommand } from './kick';
 import { leaveCommand } from './leave';
 import { logCommand } from './log';
+import { mcbeskinCommand } from './mcbeskin';
 import { mcskinCommand } from './mcskin';
 import { mcstatusCommand } from './mcstatus';
 import { pingCommand } from './ping';
@@ -43,6 +44,7 @@ export const interactions = {
 	join: joinCommand,
 	kick: kickCommand,
 	leave: leaveCommand,
+	mcbeskin: mcbeskinCommand,
 	mcskin: mcskinCommand,
 	mcstatus: mcstatusCommand,
 	ping: pingCommand,

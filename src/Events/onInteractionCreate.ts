@@ -89,6 +89,9 @@ export async function onInteractionCreate(interaction: BaseInteraction): Promise
 		case 'log':
 			interactions.log(interaction);
 			break;
+		case 'mcbeskin':
+			interactions.mcbeskin(interaction);
+			break;
 		case 'mcskin':
 			interactions.mcskin(interaction);
 			break;

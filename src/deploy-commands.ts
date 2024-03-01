@@ -78,6 +78,10 @@ const commands = [
 		.addUserOption((option) => option.setName('member').setDescription('キックするユーザー').setRequired(true))
 		.setDefaultMemberPermissions(PermissionsBitField.Flags.KickMembers),
 	new SlashCommandBuilder()
+		.setName('mcbeskin')
+		.setDescription('Minecraft BEのスキンを表示します')
+		.addStringOption((option) => option.setName('user').setDescription('スキンを表示するユーザー').setRequired(true)),
+	new SlashCommandBuilder()
 		.setName('mcskin')
 		.setDescription('Minecraftのスキンを表示します')
 		.addStringOption((option) => option.setName('user').setDescription('スキンを表示するユーザー').setRequired(true)),
@@ -149,7 +153,7 @@ const commands = [
 	new ContextMenuCommandBuilder().setName('英語に翻訳').setType(ApplicationCommandType.Message)
 ];
 
-const rest = new REST().setToken(process.env.DISCORD_TOKEN!);
+const rest = new REST().setToken(process.env.TOKEN!);
 
 (async () => {
 	try {
