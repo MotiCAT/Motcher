@@ -25,7 +25,8 @@ export async function en_translateCommand(interaction: MessageContextMenuCommand
 		.then((res) => {
 			const embed = new EmbedBuilder()
 				.setTitle('Translation Result')
-				.setDescription(res.data.translations[0].text)
+				.addFields({ name: 'Original', value: interaction.targetMessage.content })
+				.addFields({ name: 'Translation (EN)', value: res.data.translations[0].text })
 				.setColor('#0099ff')
 				.setFooter({ text: 'Powered by DeepL' });
 			interaction.reply({ embeds: [embed] });

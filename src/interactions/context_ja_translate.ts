@@ -26,7 +26,8 @@ export async function ja_translateCommand(interaction: MessageContextMenuCommand
 		.then((res) => {
 			const embed = new EmbedBuilder()
 				.setTitle('翻訳結果')
-				.setDescription(res.data.translations[0].text)
+				.addFields({ name: '原文', value: interaction.targetMessage.content })
+				.addFields({ name: '翻訳(日本語)', value: res.data.translations[0].text })
 				.setColor('#0099ff')
 				.setFooter({ text: 'Powered by DeepL' });
 			interaction.reply({ embeds: [embed] });
