@@ -78,6 +78,10 @@ const commands = [
 		.addUserOption((option) => option.setName('member').setDescription('キックするユーザー').setRequired(true))
 		.setDefaultMemberPermissions(PermissionsBitField.Flags.KickMembers),
 	new SlashCommandBuilder()
+		.setName('mcbeskin')
+		.setDescription('Minecraft BEのスキンを表示します')
+		.addStringOption((option) => option.setName('user').setDescription('スキンを表示するユーザー').setRequired(true)),
+	new SlashCommandBuilder()
 		.setName('mcskin')
 		.setDescription('Minecraftのスキンを表示します')
 		.addStringOption((option) => option.setName('user').setDescription('スキンを表示するユーザー').setRequired(true)),
@@ -87,7 +91,6 @@ const commands = [
 		.addStringOption((option) => option.setName('address').setDescription('サーバーアドレス').setRequired(true))
 		.addIntegerOption((option) => option.setName('port').setDescription('ポート番号').setRequired(false)),
 	new SlashCommandBuilder().setName('ping').setDescription('BotのPingを表示します'),
-	new SlashCommandBuilder().setName('resnow').setDescription('レスポンスを表示します'),
 	new SlashCommandBuilder()
 		.setName('response')
 		.setDescription('レスポンスを設定します')
@@ -131,6 +134,11 @@ const commands = [
 	new SlashCommandBuilder().setName('server').setDescription('サーバーの情報を表示します'),
 	new SlashCommandBuilder().setName('status').setDescription('Botのステータスを表示します'),
 	new SlashCommandBuilder()
+		.setName('ticket')
+		.setDescription('チケットを作成します')
+		.addStringOption((option) => option.setName('title').setDescription('チケットのタイトル').setRequired(false))
+		.addStringOption((option) => option.setName('description').setDescription('チケットの説明').setRequired(false)),
+	new SlashCommandBuilder()
 		.setName('timeout')
 		.setDescription('タイムアウトします')
 		.addUserOption((option) => option.setName('member').setDescription('タイムアウトするメンバー').setRequired(true))
@@ -149,7 +157,7 @@ const commands = [
 	new ContextMenuCommandBuilder().setName('英語に翻訳').setType(ApplicationCommandType.Message)
 ];
 
-const rest = new REST().setToken(process.env.DISCORD_TOKEN!);
+const rest = new REST().setToken(process.env.TOKEN!);
 
 (async () => {
 	try {

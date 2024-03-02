@@ -101,6 +101,9 @@ export async function onMessageCreate(message: Message): Promise<Awaitable<void>
 		case 'log':
 			commands.log(message);
 			break;
+		case 'mcbeskin':
+			commands.mcbeskin(message);
+			break;
 		case 'mcskin':
 			commands.mcskin(message);
 			break;

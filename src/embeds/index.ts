@@ -17,9 +17,9 @@ export const embeds = {
 			{ name: 'Commands', value: '`server`, `user`, `list`, `invite`, `search`' },
 			{
 				name: 'Server',
-				value: '`join`, `leave`, `response`, `log`'
+				value: '`join`, `leave`, `response`, `log`, `ticket`'
 			},
-			{ name: 'Minecraft', value: '`mcskin`, `mcstatus`' },
+			{ name: 'Minecraft', value: '`mcskin`, `mcbeskin`, `mcstatus`' },
 			{ name: 'Moderation', value: '`ban`, `unban`, `kick`, `role`, `clear`, `timeout`, `untimeout`' }
 		)
 		.setTimestamp()
@@ -40,7 +40,7 @@ export const embeds = {
 			},
 			{
 				name: ':arrow_up:botの歴史',
-				value: '```diff\n+ 2023/05/21 認証\n+ 2023/02/21 v1.0 Release\n- 2023/02/10 暴走\n+ 2022/05/15 Botアカウントの作成\n```'
+				value: '```diff\n+ 2023/06/27 100サーバー達成\n+ 2023/05/21 認証\n+ 2023/02/21 v1.0 Release\n- 2023/02/10 暴走\n+ 2022/05/15 Botアカウントの作成\n```'
 			},
 			{
 				name: ':link:関連リンク',
@@ -150,6 +150,16 @@ export const embeds = {
 		.setColor('#ff0000')
 		.build(),
 	kickSuccess: new Builder().addFields({ name: 'Success', value: '指定したユーザーをkickしました。' }).setColor('#0099ff').build(),
+	mcbeskinHelp: new Builder()
+		.setTitle('mcbeskinコマンド')
+		.setDescription('指定したユーザーのマイクラBEスキンを取得するコマンド')
+		.setColor('#0099ff')
+		.addFields({
+			name: '使い方',
+			value: 'mc!mcbeskin ユーザー名'
+		})
+		.setFooter({ text: 'Motcher v2.0' })
+		.build(),
 	mcskinHelp: new Builder()
 		.setTitle('mcskinコマンド')
 		.setDescription('指定したユーザーのマイクラスキンを取得するコマンド')

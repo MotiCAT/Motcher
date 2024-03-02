@@ -17,6 +17,7 @@ import { joinCommand } from './join';
 import { kickCommand } from './kick';
 import { leaveCommand } from './leave';
 import { logCommand } from './log';
+import { mcbeskinCommand } from './mcbeskin';
 import { mcskinCommand } from './mcskin';
 import { mcstatusCommand } from './mcstatus';
 import { pingCommand } from './ping';
@@ -26,6 +27,7 @@ import { roleCommand } from './role';
 import { searchCommand } from './search';
 import { serverCommand } from './server';
 import { statusCommand } from './status';
+import { ticketCommand } from './ticket';
 import { timeoutCommand } from './timeout';
 import { untimeoutCommand } from './untimeout';
 import { userCommand } from './user';
@@ -43,6 +45,7 @@ export const interactions = {
 	join: joinCommand,
 	kick: kickCommand,
 	leave: leaveCommand,
+	mcbeskin: mcbeskinCommand,
 	mcskin: mcskinCommand,
 	mcstatus: mcstatusCommand,
 	ping: pingCommand,
@@ -52,6 +55,7 @@ export const interactions = {
 	search: searchCommand,
 	server: serverCommand,
 	status: statusCommand,
+	ticket: ticketCommand,
 	timeout: timeoutCommand,
 	untimeout: untimeoutCommand,
 	user: userCommand,
