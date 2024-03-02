@@ -4,7 +4,7 @@ import { Message, EmbedBuilder } from 'discord.js';
 
 export async function mcbeskinCommand(message: Message) {
 	const name = message.content.split(' ')[1];
-	if (!name) return message.reply(embeds.mcskinHelp);
+	if (!name) return message.reply(embeds.mcbeskinHelp);
 	try {
 		const response = await axios.get(`https://api.geysermc.org/v2/xbox/xuid/${name}`);
 		const xuid = response.data.xuid.toString(16).toUpperCase();
