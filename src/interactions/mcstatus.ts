@@ -6,7 +6,6 @@ export async function mcstatusCommand(interaction: ChatInputCommandInteraction) 
 	const mcServerIp = interaction.options.getString('address');
 	const mcServerPort = interaction.options.getInteger('port') ?? 25565;
 	const url = `https://mcapi.us/server/status?ip=${mcServerIp}&port=${mcServerPort}`;
-	if (!mcServerIp) return interaction.reply(embeds.mcstatusHelp);
 	axios
 		.get(url)
 		.then((response) => {

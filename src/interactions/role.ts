@@ -9,7 +9,6 @@ export async function roleCommand(interaction: ChatInputCommandInteraction) {
 				return interaction.reply(embeds.roleAddPermissionError);
 			const role = interaction.options.getRole('role') as Role;
 			const member = interaction.options.getMember('member') as GuildMember;
-			if (!role || !member) return interaction.reply(embeds.roleAddHelp);
 			member.roles
 				.add(role)
 				.then(() => {
