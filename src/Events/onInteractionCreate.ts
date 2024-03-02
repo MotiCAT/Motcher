@@ -116,6 +116,9 @@ export async function onInteractionCreate(interaction: BaseInteraction): Promise
 		case 'status':
 			interactions.status(interaction);
 			break;
+		case 'ticket':
+			interactions.ticket(interaction);
+			break;
 		case 'timeout':
 			interactions.timeout(interaction);
 			break;

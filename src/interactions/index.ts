@@ -27,6 +27,7 @@ import { roleCommand } from './role';
 import { searchCommand } from './search';
 import { serverCommand } from './server';
 import { statusCommand } from './status';
+import { ticketCommand } from './ticket';
 import { timeoutCommand } from './timeout';
 import { untimeoutCommand } from './untimeout';
 import { userCommand } from './user';
@@ -54,6 +55,7 @@ export const interactions = {
 	search: searchCommand,
 	server: serverCommand,
 	status: statusCommand,
+	ticket: ticketCommand,
 	timeout: timeoutCommand,
 	untimeout: untimeoutCommand,
 	user: userCommand,
