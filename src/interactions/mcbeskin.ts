@@ -4,7 +4,7 @@ import { ChatInputCommandInteraction, EmbedBuilder } from 'discord.js';
 
 export async function mcbeskinCommand(interaction: ChatInputCommandInteraction) {
 	await interaction.deferReply();
-	const name = interaction.options.getString('name');
+	const name = interaction.options.getString('user');
 	try {
 		const response = await axios.get(`https://api.geysermc.org/v2/xbox/xuid/${name}`);
 		const xuid = response.data.xuid.toString(16).toUpperCase();
